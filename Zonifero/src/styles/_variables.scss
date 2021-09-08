@@ -1,0 +1,26 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Roboto&display=swap");
+
+//colors
+$product-color: #3146ff;
+$text-color: #000000;
+$background-color: #f7f7f7;
+$secondary-color: #01ffcb;
+
+//metrics
+$x-small: 10px;
+$small: 20px;
+$base: 30px;
+$medium: 40px;
+$large: 60px;
+$x-large: 90px;
+$xx-large: 120px;
+
+//fonts
+$special-font: "poppins";
+$default-font: "roboto";
+
+$breakpoints: (
+  xs: 500px,
+  sm: 799px,
+  md: 1023px,
+);

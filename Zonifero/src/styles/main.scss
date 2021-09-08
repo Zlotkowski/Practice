@@ -1,7 +1,232 @@
-@import 'reset';
+@import "reset";
+@import "variables";
+@import "typography";
 
-body {
-  background: #EEE;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  text-align: center;
+.wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
+.header {
+  flex-basis: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  position: fixed;
+  z-index: 100;
+  background-color: white;
+}
+
+.logo {
+  margin: 0 $base 0 $base;
+  margin-top: $medium;
+  margin-bottom: $small;
+  flex-basis: $xx-large;
+  cursor: pointer;
+  &__image {
+    display: block;
+    width: 100%;
+  }
+}
+
+.settings {
+  margin-top: $medium;
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  &__list {
+    flex-wrap: nowrap;
+    flex-direction: row;
+    display: none;
+
+    @media screen and (min-width: map-get($breakpoints, md)) {
+      display: flex;
+    }
+  }
+  &__item {
+    font: $default-font;
+    font-size: 17px;
+    text-align: center;
+    align-items: center;
+    padding-bottom: $x-small;
+    &:nth-last-child(1) {
+      display: flex;
+      margin-top: -$large;
+      background-color: $product-color;
+      width: 300px;
+      .settings__link {
+        margin-left: 60px;
+        margin-top: $large;
+        margin-bottom: $x-small;
+        color: $background-color;
+      }
+    }
+  }
+  &__link {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: $base;
+    margin-right: $base;
+    color: $text-color;
+    display: block;
+    text-decoration: none;
+    &--store {
+      font-size: 14px;
+      margin-left: $small;
+      margin-right: $small;
+      color: $text-color;
+      display: block;
+      text-decoration: none;
+    }
+  }
+}
+
+// .arrow {
+//   width: 10px;
+//   height: 10px;
+//   border: 1px solid $text-color;
+//   transform: rotate(-45deg);
+//   border-top: 0;
+//   border-right: 0;
+//   @media screen and (min-width: map-get($breakpoints, md)) {
+//     display: none;
+//   }
+// }
+
+.menu {
+  flex-basis: 100%;
+  font-family: $default-font;
+  // display: none;
+  visibility: hidden;
+  height: $large;
+  @media screen and (min-width: map-get($breakpoints, sm)) {
+    height: $x-large;
+    visibility: visible;
+    display: flex;
+  }
+  &__list {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    margin-left: $base;
+    @media screen and (min-width: map-get($breakpoints, md)) {
+      margin-left: 5 * $large;
+    }
+  }
+  &__item {
+    margin-left: 4vw;
+    font: $default-font;
+    font-size: 17px;
+    &:hover {
+      margin-top: -2px;
+      border-bottom: 2px $secondary-color solid;
+      transition: 0.1s;
+      font-weight: bold;
+    }
+  }
+  &__link {
+    color: $text-color;
+    padding: 0 $x-small;
+    display: block;
+    text-decoration: none;
+  }
+}
+
+.section {
+  margin-top: 180px;
+  display: flex;
+  flex-basis: 100%;
+  z-index: 1;
+  margin-bottom: $large;
+}
+
+.footer {
+  flex-basis: 100%;
+  background-color: $product-color;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  z-index: 1;
+
+  .footer-links {
+    justify-content: left;
+    @media screen and (min-width: map-get($breakpoints, xs)) {
+      flex-direction: column;
+    }
+  }
+  &__logo {
+    flex-basis: 100%;
+    order: 2;
+    display: flex;
+    border-top: 1px $background-color solid;
+    height: $xx-large;
+    justify-content: right;
+    margin-top: $large;
+    margin-bottom: $medium;
+    @media screen and (min-width: map-get($breakpoints, md)) {
+      margin-top: $xx-large;
+      margin-bottom: $xx-large;
+    }
+    &__image {
+      margin-top: $medium;
+      margin-right: $small;
+      margin-bottom: $small;
+      height: $small;
+    }
+  }
+  @media screen and (min-width: map-get($breakpoints, xs)) {
+    text-align: left;
+    flex-direction: column;
+  }
+  // @media screen and (min-width: map-get($breakpoints, sm)) {
+  //   flex-wrap: wrap;
+  //   display: flex;
+  //   justify-content: left;
+  //   flex-direction: row;
+  // }
+  @media screen and (min-width: map-get($breakpoints, md)) {
+    flex-wrap: wrap;
+    flex-direction: row;
+  }
+}
+
+.footer-links {
+  padding-top: $x-large;
+  padding-right: 10vw;
+
+  text-align: left;
+  margin-left: $base;
+  list-style: none;
+  &__title {
+    margin-bottom: $base;
+
+    a {
+      font-family: $special-font;
+      color: #ffffff;
+      letter-spacing: 0;
+      font-size: 17px;
+      font-weight: bold;
+      line-height: 27px;
+      text-decoration: none;
+      color: $background-color;
+    }
+  }
+  &__item {
+    padding: 2px;
+    a {
+      font-size: 17;
+      font-weight: normal;
+      text-decoration: none;
+      color: $background-color;
+    }
+  }
+  @media screen and (min-width: map-get($breakpoints, md)) {
+    &:nth-last-child(4) {
+      margin-left: 300px;
+      // padding-bottom: $xx-large;
+    }
+  }
 }

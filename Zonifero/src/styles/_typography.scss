@@ -1,0 +1,26 @@
+h2 {
+  font-family: $special-font;
+  color: $text-color;
+  font-size: 30px;
+  line-height: 40px;
+}
+
+h3 {
+  font-family: $special-font;
+  color: $text-color;
+  font-size: 19px;
+  line-height: 26px;
+}
+
+h4 {
+  font: $default-font;
+  color: $text-color;
+  font-size: 17px;
+}
+
+p {
+  font-family: $default-font;
+  color: $text-color;
+  font-size: 17px;
+  line-height: 25px;
+}
