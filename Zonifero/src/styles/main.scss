@@ -145,7 +145,6 @@
   margin-top: 60px;
   margin-bottom: $large;
   display: block;
-  flex-basis: 100%;
   z-index: 1;
   display: flex;
   flex-wrap: wrap;
@@ -166,6 +165,7 @@
     }
 
     &__container {
+      // flex-basis: 100%;
       margin-top: $base;
       margin-left: $base;
       // margin-right: $large;
@@ -174,7 +174,7 @@
       // width: 5 * $xx-large;
       flex-wrap: wrap;
       display: flex;
-      @media screen and (min-width: map-get($breakpoints, md)) {
+      @media screen and (min-width: map-get($breakpoints, sm)) {
         justify-content: left;
         margin-top: 2 * $x-large;
         margin-left: 5 * $large;
@@ -231,21 +231,57 @@
         height: 52px;
         justify-content: center;
       }
-      &-background {
-        width: 375px;
-        height: 247px;
-        @media screen and (min-width: map-get($breakpoints, md)) {
-          margin-top: 2 * $x-large;
-          width: 784px;
-          height: 488px;
-        }
+    }
+    &-background {
+      // flex-basis: 50%;
+      width: 375px;
+      height: 247px;
+      @media screen and (min-width: map-get($breakpoints, md)) {
+        margin-top: 2 * $x-large;
+        width: 784px;
+        height: 488px;
       }
     }
 
-    // &__who {
-    //   display: flex;
-    //   flex-direction: row;
-    // }
+    &__who {
+      flex-basis: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      z-index: 1;
+      background-color: $background-color;
+
+      @media screen and (min-width: map-get($breakpoints, md)) {
+        flex-wrap: nowrap;
+      }
+
+      &-container {
+        flex-basis: 30%;
+        margin-left: 0;
+        margin-right: 0;
+        @media screen and (min-width: map-get($breakpoints, xs)) {
+          margin-left: 5 * $large;
+          margin-right: 2 * $large;
+        }
+      }
+
+      &-title {
+        margin-top: 2 * $x-large;
+        font-size: 31px;
+        font-weight: bold;
+        line-height: 48px;
+        color: $text-color;
+        font-family: $default-font;
+        margin-bottom: $base;
+      }
+      &-desc {
+        font-size: 17px;
+        letter-spacing: 0;
+        color: $text-color;
+        font-family: $default-font;
+        margin-bottom: 2 * $large;
+      }
+    }
   }
 }
 
