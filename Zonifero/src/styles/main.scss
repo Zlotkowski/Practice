@@ -156,23 +156,10 @@
   .streamline {
     background-color: $background-color;
     display: flex;
+    flex-basis: 100%;
     // flex-wrap: wrap;
     flex-direction: column;
     width: auto;
-
-    &__hand {
-      width: 592px;
-      height: 797px;
-      position: fixed;
-      z-index: 0;
-      margin-top: $base;
-      margin-left: 55vw;
-      display: none; ///<----
-      @media screen and (min-width: map-get($breakpoints, md)) {
-        margin-left: 65vw;
-        display: flex;
-      }
-    }
 
     @media screen and (min-width: map-get($breakpoints, md)) {
       flex-direction: row;
@@ -181,60 +168,83 @@
     &__container {
       margin-top: $base;
       margin-left: $base;
-      margin-right: $small;
+      // margin-right: $large;
       justify-content: center;
-      //width: 5 * $xx-large;
+      text-align: center;
+      // width: 5 * $xx-large;
       flex-wrap: wrap;
       display: flex;
       @media screen and (min-width: map-get($breakpoints, md)) {
+        justify-content: left;
         margin-top: 2 * $x-large;
         margin-left: 5 * $large;
       }
+      &__hand {
+        width: 592px;
+        height: 797px;
+        position: fixed;
+        margin-top: -$xx-large;
+        z-index: 0;
+        margin-left: 55vw;
+        display: none; ///<----
+        @media screen and (min-width: map-get($breakpoints, md)) {
+          margin-left: 45vw;
+          display: flex;
+        }
+      }
       &-title {
         color: $product-color;
-        margin-bottom: 1vw;
-        font-size: 40px;
+        margin-bottom: 2vw;
+        font-size: 38px;
+        justify-content: center;
+        text-align: left;
+        line-height: 50px;
+        @media screen and (min-width: map-get($breakpoints, sm)) {
+          // text-align: center;
+          text-align: left;
+        }
         @media screen and (min-width: map-get($breakpoints, md)) {
+          order: 0;
+          justify-content: left;
           font-size: 70px;
+          line-height: 80px;
+          text-align: left;
         }
       }
       &-subtitle {
         color: $text-color;
         font-size: 22px;
+        text-align: left;
+        @media screen and (min-width: map-get($breakpoints, sm)) {
+          text-align: center;
+        }
         @media screen and (min-width: map-get($breakpoints, md)) {
+          order: 0;
+          justify-content: left;
           font-size: 30px;
+          text-align: left;
         }
       }
       &-image {
         display: flex;
-        justify-content: space-around;
         width: 312px;
         height: 52px;
-        @media screen and (min-width: map-get($breakpoints, xs)) {
-          font-size: 30px;
-          width: 420px;
-          height: 70px;
+        justify-content: center;
+      }
+      &-background {
+        width: 375px;
+        height: 247px;
+        @media screen and (min-width: map-get($breakpoints, md)) {
+          margin-top: 2 * $x-large;
+          width: 784px;
+          height: 488px;
         }
       }
     }
-    &__image {
-      margin-top: 2 * $x-large;
-      width: 100%;
-      height: 247px;
-      @media screen and (min-width: map-get($breakpoints, sm)) {
-        width: 784px;
-        height: 488px;
-      }
-    }
-    // &__img {
-    //   margin-top: 2 * $x-large;
-    //   width: 396px;
-    //   height: 247px;
-    //   @media screen and (min-width: map-get($breakpoints, xs)) {
-    //     font-size: 30px;
-    //     width: 420px;
-    //     height: 70px;
-    //   }
+
+    // &__who {
+    //   display: flex;
+    //   flex-direction: row;
     // }
   }
 }
@@ -255,7 +265,6 @@
   }
   &__logo {
     flex-basis: 100%;
-    order: 2;
     display: flex;
     border-top: 1px $background-color solid;
     height: $xx-large;
@@ -277,12 +286,7 @@
     text-align: left;
     flex-direction: column;
   }
-  // @media screen and (min-width: map-get($breakpoints, sm)) {
-  //   flex-wrap: wrap;
-  //   display: flex;
-  //   justify-content: left;
-  //   flex-direction: row;
-  // }
+
   @media screen and (min-width: map-get($breakpoints, md)) {
     flex-wrap: wrap;
     flex-direction: row;
