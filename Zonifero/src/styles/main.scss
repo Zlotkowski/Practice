@@ -259,6 +259,7 @@
         flex-basis: 30%;
         margin-left: 0;
         margin-right: 0;
+
         @media screen and (min-width: map-get($breakpoints, xs)) {
           margin-left: 5 * $large;
           margin-right: 2 * $large;
@@ -280,6 +281,40 @@
         color: $text-color;
         font-family: $default-font;
         margin-bottom: 2 * $large;
+      }
+    }
+    &__solving {
+      display: flex;
+      background-color: $background-color;
+      flex-basis: 100%;
+      z-index: 1;
+      &-img {
+        margin-top: 79px;
+        width: 137px;
+        height: 160px;
+      }
+      &-card {
+        display: flex;
+        flex-direction: column;
+        margin-left: 5 * $large;
+        margin-bottom: $base;
+        height: 500px;
+        width: 310px;
+        background-color: white;
+        align-items: center;
+      }
+      &-title {
+        margin-top: 68px;
+        color: $text-color;
+        font-size: 19px;
+        font-weight: bold;
+      }
+      &-desc {
+        height: 92px;
+        width: 194px;
+        margin-top: 30px;
+        color: $text-color;
+        font-size: 17px;
       }
     }
   }
