@@ -44,10 +44,8 @@
     flex-wrap: nowrap;
     flex-direction: row;
     display: none;
-    // visibility: hidden;
 
     @media screen and (min-width: map-get($breakpoints, md)) {
-      // visibility: visible;
       display: flex;
     }
   }
@@ -105,11 +103,9 @@
   flex-basis: 100%;
   font-family: $default-font;
   display: none;
-  // visibility: hidden;
   height: $large;
   @media screen and (min-width: map-get($breakpoints, sm)) {
     height: $x-large;
-    // visibility: visible;
     display: flex;
   }
   &__list {
@@ -141,181 +137,283 @@
   }
 }
 
-.section {
+.content {
+  background-color: $background-color;
+  flex-basis: 100%;
+  width: 100vw;
   margin-top: 60px;
-  margin-bottom: $large;
-  display: block;
-  z-index: 1;
   display: flex;
   flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+
   @media screen and (min-width: map-get($breakpoints, xs)) {
     margin-top: 180px;
   }
 
-  .streamline {
-    background-color: $background-color;
-    display: flex;
-    flex-basis: 100%;
-    // flex-wrap: wrap;
-    flex-direction: column;
-    width: auto;
+  @media screen and (min-width: map-get($breakpoints, md)) {
+    margin-top: 80px;
+    flex-direction: row;
+  }
+
+  &__container {
+    flex-basis: 40%;
+    margin-top: $base;
+    margin-left: $base;
+    margin-right: $base;
+    flex-wrap: nowrap;
 
     @media screen and (min-width: map-get($breakpoints, md)) {
-      flex-direction: row;
+      justify-content: left;
+      margin-top: 2 * $x-large;
+      margin-left: 5 * $large;
+    }
+    &__hand {
+      position: fixed;
+      margin-top: -$xx-large;
+      z-index: 0;
+      display: none; ///<----
+      max-width: 706px;
+      @media screen and (min-width: map-get($breakpoints, md)) {
+        margin-top: 0.5vw;
+        margin-left: 45vw;
+        display: flex;
+        height: auto;
+        width: 26vw;
+      }
+      img {
+        width: 100%;
+      }
+    }
+    &-title {
+      color: $product-color;
+      margin-bottom: 2vw;
+      font-size: 38px;
+      text-align: left;
+      line-height: 50px;
+      @media screen and (min-width: map-get($breakpoints, sm)) {
+        text-align: left;
+      }
+      @media screen and (min-width: map-get($breakpoints, md)) {
+        order: 0;
+        justify-content: left;
+        font-size: 70px;
+        line-height: 80px;
+        text-align: left;
+      }
+    }
+    &-subtitle {
+      color: $text-color;
+      font-size: 22px;
+      max-width: 100vw;
+      text-align: left;
+      @media screen and (min-width: map-get($breakpoints, sm)) {
+        text-align: center;
+      }
+      @media screen and (min-width: map-get($breakpoints, md)) {
+        order: 0;
+        justify-content: left;
+        font-size: 30px;
+        text-align: left;
+      }
+    }
+    &-image {
+      display: flex;
+      width: 312px;
+      height: 82px;
+      justify-content: center;
+    }
+    &-background {
+      flex-basis: 40%;
+      width: auto;
+      height: 247px;
+      max-width: 100vw;
+      @media screen and (min-width: map-get($breakpoints, md)) {
+        margin-top: 2 * $x-large;
+        width: auto;
+        height: 488px;
+      }
+      img {
+        width: 100%;
+      }
+    }
+  }
+  &-background {
+    flex-basis: 35%;
+    width: auto;
+    height: 247px;
+    max-width: 100vw;
+    @media screen and (min-width: map-get($breakpoints, md)) {
+      margin-top: 2 * $x-large;
+      width: auto;
+      height: 488px;
+    }
+    img {
+      width: 100%;
+    }
+  }
+
+  &__who {
+    flex-basis: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    z-index: 1;
+    justify-content: center;
+    background-color: $background-color;
+
+    @media screen and (min-width: map-get($breakpoints, md)) {
+      flex-wrap: nowrap;
     }
 
-    &__container {
-      // flex-basis: 100%;
-      margin-top: $base;
-      margin-left: $base;
-      // margin-right: $large;
-      justify-content: center;
-      text-align: center;
-      // width: 5 * $xx-large;
-      flex-wrap: wrap;
+    &-wrapper {
       display: flex;
-      @media screen and (min-width: map-get($breakpoints, sm)) {
+      flex-direction: column;
+      margin-left: $base;
+      justify-content: left;
+      @media screen and (min-width: map-get($breakpoints, xs)) {
+        justify-content: center;
+        flex-direction: row;
+      }
+      @media screen and (min-width: map-get($breakpoints, md)) {
         justify-content: left;
-        margin-top: 2 * $x-large;
         margin-left: 5 * $large;
       }
-      &__hand {
-        width: 592px;
-        height: 797px;
-        position: fixed;
-        margin-top: -$xx-large;
-        z-index: 0;
-        margin-left: 55vw;
-        display: none; ///<----
-        @media screen and (min-width: map-get($breakpoints, md)) {
-          margin-left: 45vw;
-          display: flex;
-        }
-      }
-      &-title {
-        color: $product-color;
-        margin-bottom: 2vw;
-        font-size: 38px;
+    }
+
+    &-container {
+      flex-basis: 30%;
+    }
+
+    &-title {
+      margin-top: 2 * $x-large;
+      font-size: 31px;
+      font-weight: bold;
+      line-height: 48px;
+      color: $text-color;
+      font-family: $default-font;
+      margin-bottom: $base;
+    }
+    &-desc {
+      font-size: 17px;
+      letter-spacing: 0;
+      color: $text-color;
+      font-family: $default-font;
+      margin-bottom: 2 * $large;
+    }
+  }
+  &__solving {
+    display: flex;
+    background-color: $background-color;
+    flex-basis: 100%;
+    z-index: 1;
+    &-wrapper {
+      display: flex;
+      margin-left: $base;
+      flex-wrap: wrap;
+      justify-content: left;
+      @media screen and (min-width: map-get($breakpoints, xs)) {
         justify-content: center;
-        text-align: left;
-        line-height: 50px;
-        @media screen and (min-width: map-get($breakpoints, sm)) {
-          // text-align: center;
-          text-align: left;
-        }
-        @media screen and (min-width: map-get($breakpoints, md)) {
-          order: 0;
-          justify-content: left;
-          font-size: 70px;
-          line-height: 80px;
-          text-align: left;
-        }
       }
-      &-subtitle {
-        color: $text-color;
-        font-size: 22px;
-        text-align: left;
-        @media screen and (min-width: map-get($breakpoints, sm)) {
-          text-align: center;
-        }
-        @media screen and (min-width: map-get($breakpoints, md)) {
-          order: 0;
-          justify-content: left;
-          font-size: 30px;
-          text-align: left;
-        }
+      @media screen and (min-width: map-get($breakpoints, md)) {
+        justify-content: left;
+        margin-left: 5 * $large;
       }
-      &-image {
-        display: flex;
-        width: 312px;
-        height: 52px;
-        justify-content: center;
+    }
+    &-img {
+      margin-top: 79px;
+      width: 137px;
+      height: 160px;
+    }
+    &-text {
+      display: flex;
+      flex-basis: 100%;
+      margin-bottom: $small;
+    }
+    &-card {
+      margin-right: 2vw;
+      display: flex;
+      flex-direction: column;
+      margin-bottom: $base;
+      height: 500px;
+      width: 310px;
+      background-color: white;
+      align-items: center;
+    }
+    &-title {
+      margin-top: 68px;
+      color: $text-color;
+      font-size: 19px;
+      font-weight: bold;
+    }
+    &-desc {
+      height: 92px;
+      width: 194px;
+      margin-top: 30px;
+      color: $text-color;
+      font-size: 17px;
+    }
+  }
+  &__features {
+    display: flex;
+    flex-basis: 100%;
+    z-index: 1;
+    &-wrapper {
+      flex-basis: 100%;
+      // width: 100vw;
+    }
+    &-introText {
+      display: flex;
+      flex-basis: 100%;
+      background-color: $background-color;
+      margin-left: $base;
+      @media screen and (min-width: map-get($breakpoints, md)) {
+        margin-left: 5 * $large;
       }
     }
     &-background {
-      // flex-basis: 50%;
-      width: 375px;
-      height: 247px;
-      @media screen and (min-width: map-get($breakpoints, md)) {
-        margin-top: 2 * $x-large;
-        width: 784px;
-        height: 488px;
+      img {
+        width: 100%;
       }
     }
-
-    &__who {
-      flex-basis: 100%;
+    &-content {
+      background-color: $product-color;
+      height: auto;
+    }
+    &-wrapperText {
       display: flex;
+      flex-basis: 100%;
+      flex-direction: row;
       flex-wrap: wrap;
-      justify-content: space-around;
-      z-index: 1;
-      background-color: $background-color;
-
+      margin-left: $base;
+      padding-bottom: $base;
       @media screen and (min-width: map-get($breakpoints, md)) {
-        flex-wrap: nowrap;
-      }
-
-      &-container {
-        flex-basis: 30%;
-        margin-left: 0;
-        margin-right: 0;
-
-        @media screen and (min-width: map-get($breakpoints, xs)) {
-          margin-left: 5 * $large;
-          margin-right: 2 * $large;
-        }
-      }
-
-      &-title {
-        margin-top: 2 * $x-large;
-        font-size: 31px;
-        font-weight: bold;
-        line-height: 48px;
-        color: $text-color;
-        font-family: $default-font;
-        margin-bottom: $base;
-      }
-      &-desc {
-        font-size: 17px;
-        letter-spacing: 0;
-        color: $text-color;
-        font-family: $default-font;
-        margin-bottom: 2 * $large;
+        margin-left: 5 * $large;
+        flex-direction: row;
       }
     }
-    &__solving {
-      display: flex;
-      background-color: $background-color;
-      flex-basis: 100%;
-      z-index: 1;
-      &-img {
-        margin-top: 79px;
-        width: 137px;
-        height: 160px;
+    &-title {
+      min-width: 300px;
+      flex-basis: 40%;
+      margin-top: $base;
+      font-family: $default-font;
+      color: white;
+      font-weight: bold;
+      font-size: 50px;
+    }
+    &-desc {
+      min-width: 300px;
+      flex-basis: 40%;
+      margin-top: $base;
+      font-family: $default-font;
+      color: white;
+      font-size: 17px;
+      margin-top: 1vw;
+      @media screen and (min-width: map-get($breakpoints, sm)) {
+        margin-top: 6vw;
       }
-      &-card {
-        display: flex;
-        flex-direction: column;
-        margin-left: 5 * $large;
-        margin-bottom: $base;
-        height: 500px;
-        width: 310px;
-        background-color: white;
-        align-items: center;
-      }
-      &-title {
-        margin-top: 68px;
-        color: $text-color;
-        font-size: 19px;
-        font-weight: bold;
-      }
-      &-desc {
-        height: 92px;
-        width: 194px;
-        margin-top: 30px;
-        color: $text-color;
-        font-size: 17px;
-      }
+    }
+    &-test {
+      width: 300px;
     }
   }
 }
@@ -397,7 +495,6 @@
   @media screen and (min-width: map-get($breakpoints, md)) {
     &:nth-last-child(4) {
       margin-left: 300px;
-      // padding-bottom: $xx-large;
     }
   }
 }

@@ -2,18 +2,18 @@
  * This is the DEV configuration for webpack
  * It will be used for development mode
  */
-'use strict';
-const path   = require('path');
-const merge  = require('webpack-merge');
-const common = require('./webpack.common.js');
+"use strict";
+const path = require("path");
+const merge = require("webpack-merge");
+const common = require("./webpack.common.js");
 
 module.exports = merge(common, {
-  mode: 'development',
-  devtool: 'source-map',
+  mode: "development",
+  devtool: "source-map",
   devServer: {
-    contentBase: path.join(__dirname, 'dist'),
+    contentBase: path.join(__dirname, "dist"),
     compress: true,
-    port: 8080
+    port: 8081,
   },
   plugins: [],
   module: {
@@ -26,9 +26,9 @@ module.exports = merge(common, {
           // translates CSS into CommonJS
           "css-loader",
           // compiles Sass to CSS, using Node Sass by default
-          "sass-loader"
-        ]
-      }
-    ]
-  }
+          "sass-loader",
+        ],
+      },
+    ],
+  },
 });
